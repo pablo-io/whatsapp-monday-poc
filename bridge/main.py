@@ -108,6 +108,7 @@ async def health():
 @app.post("/webhook/evolution")
 async def evolution_webhook(request: Request):
     payload = await request.json()
+    print(f"[evolution webhook] payload recibido: {json.dumps(payload)[:2000]}")
     if payload.get("event") != "messages.upsert":
         return JSONResponse({"ignored": True})
 
@@ -133,6 +134,7 @@ async def evolution_webhook(request: Request):
 @app.post("/webhook/monday")
 async def monday_webhook(request: Request):
     payload = await request.json()
+    print(f"[monday webhook] payload recibido: {json.dumps(payload)[:2000]}")
 
     # Monday verifica la URL del webhook con un "challenge" que hay que reenviar tal cual,
     # se recibe una sola vez al crear la suscripcion.

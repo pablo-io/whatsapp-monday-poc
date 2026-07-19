@@ -16,7 +16,7 @@ services:
       - redis_data:/data
 
   evolution-api:
-    image: atendai/evolution-api:v2.1.1
+    image: evoapicloud/evolution-api:v2.3.7
     restart: unless-stopped
     depends_on:
       - postgres
